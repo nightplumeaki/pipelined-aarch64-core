@@ -1,5 +1,5 @@
 # Pipelined ARMv8 CPU (Lab 4)
-SystemVerilog implementation of a 5‑stage pipelined ARMv8‑A subset CPU for EE469 Lab 4. The design includes early branch target calculation, flag forwarding, and data forwarding to minimize stalls. Simulation is set up for ModelSim/Questa.
+SystemVerilog implementation of a 5‑stage pipelined ARMv8‑A subset CPU for EE469 Lab 4. The design includes early branch target calculation, flag forwarding, and data forwarding to minimize stalls. Simulation is set up for ModelSim.
 
 ## Layout
 - `cpu.sv`: Top-level pipeline wiring (IF/RF/EX/MEM/WB), branch target acceleration, and flag forwarding.
@@ -8,9 +8,8 @@ SystemVerilog implementation of a 5‑stage pipelined ARMv8‑A subset CPU for E
 - `instructmem.sv`, `datamem.sv`: Instruction ROM (loads `.arm` benchmark files) and byte-addressable data memory.
 - `cpustim.sv`, `cpustim_wave.do`, `runlab.do`: Testbench, waveform setup, and ModelSim do file.
 - `benchmarks/`: Provided programs (`test01_AddiB.arm` … `test12_CRC16.arm`).
-- `Launch_ModelSim.bat`: Windows shortcut path for launching ModelSim.
 
-## Running the simulation (ModelSim/Questa)
+## Running the simulation (ModelSim)
 1) Start ModelSim and change to this folder.  
 2) From the transcript, run the provided do file:
    ```tcl
