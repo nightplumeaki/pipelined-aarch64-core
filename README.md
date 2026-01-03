@@ -1,5 +1,5 @@
-# Pipelined ARMv8 CPU (Lab 4)
-SystemVerilog implementation of a 5‑stage pipelined ARMv8‑A subset CPU for EE469 Lab 4. The design includes early branch target calculation, flag forwarding, and data forwarding to minimize stalls. Simulation is set up for ModelSim.
+# Pipelined ARMv8 CPU
+SystemVerilog implementation of a 5‑stage pipelined ARMv8‑A subset CPU for EE 469 Lab #4 at the University of Washington. The design includes early branch target calculation, flag forwarding, and data forwarding to minimize stalls. Simulation is set up for ModelSim.
 
 ## Layout
 - `cpu.sv`: Top-level pipeline wiring (IF/RF/EX/MEM/WB), branch target acceleration, and flag forwarding.
