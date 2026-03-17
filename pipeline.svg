@@ -1,0 +1,123 @@
+<svg width="680" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" style="font-family: system-ui, sans-serif; background: white;">
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#993C1D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ===== PIPELINE STAGES ===== -->
+
+  <!-- IF -->
+  <rect x="20" y="40" width="108" height="130" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="74" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#3C3489">IF</text>
+  <text x="74" y="86" text-anchor="middle" font-size="12" fill="#534AB7">Instruction fetch</text>
+  <text x="74" y="104" text-anchor="middle" font-size="12" fill="#534AB7">PC + 4</text>
+  <text x="74" y="122" text-anchor="middle" font-size="12" fill="#534AB7">Branch target</text>
+  <text x="74" y="140" text-anchor="middle" font-size="12" fill="#534AB7">Instr mem</text>
+
+  <!-- RF -->
+  <rect x="148" y="40" width="108" height="130" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="202" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#085041">RF</text>
+  <text x="202" y="86" text-anchor="middle" font-size="12" fill="#0F6E56">Reg file read</text>
+  <text x="202" y="104" text-anchor="middle" font-size="12" fill="#0F6E56">Control logic</text>
+  <text x="202" y="122" text-anchor="middle" font-size="12" fill="#0F6E56">Sign extend</text>
+  <text x="202" y="140" text-anchor="middle" font-size="12" fill="#0F6E56">Fwd mux</text>
+
+  <!-- EX -->
+  <rect x="276" y="40" width="108" height="130" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="330" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#633806">EX</text>
+  <text x="330" y="86" text-anchor="middle" font-size="12" fill="#854F0B">ALU</text>
+  <text x="330" y="104" text-anchor="middle" font-size="12" fill="#854F0B">Shifter (LSR)</text>
+  <text x="330" y="122" text-anchor="middle" font-size="12" fill="#854F0B">Flag control</text>
+  <text x="330" y="140" text-anchor="middle" font-size="12" fill="#854F0B">Flag fwd</text>
+
+  <!-- MEM -->
+  <rect x="404" y="40" width="108" height="130" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text x="458" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#712B13">MEM</text>
+  <text x="458" y="86" text-anchor="middle" font-size="12" fill="#993C1D">Data memory</text>
+  <text x="458" y="104" text-anchor="middle" font-size="12" fill="#993C1D">Read / write</text>
+  <text x="458" y="122" text-anchor="middle" font-size="12" fill="#993C1D">Addr = ALU</text>
+  <text x="458" y="140" text-anchor="middle" font-size="12" fill="#993C1D">result</text>
+
+  <!-- WB -->
+  <rect x="532" y="40" width="108" height="130" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="586" y="66" text-anchor="middle" font-size="14" font-weight="500" fill="#0C447C">WB</text>
+  <text x="586" y="86" text-anchor="middle" font-size="12" fill="#185FA5">MemToReg mux</text>
+  <text x="586" y="104" text-anchor="middle" font-size="12" fill="#185FA5">ALU / Mem /</text>
+  <text x="586" y="122" text-anchor="middle" font-size="12" fill="#185FA5">LSR result</text>
+  <text x="586" y="140" text-anchor="middle" font-size="12" fill="#185FA5">→ reg file</text>
+
+  <!-- Pipeline register labels -->
+  <text x="138" y="34" text-anchor="middle" font-size="11" fill="#888780">IF/RF</text>
+  <text x="266" y="34" text-anchor="middle" font-size="11" fill="#888780">RF/EX</text>
+  <text x="394" y="34" text-anchor="middle" font-size="11" fill="#888780">EX/MEM</text>
+  <text x="522" y="34" text-anchor="middle" font-size="11" fill="#888780">MEM/WB</text>
+
+  <!-- Pipeline register dashed lines -->
+  <line x1="138" y1="40" x2="138" y2="170" stroke="#B4B2A9" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="266" y1="40" x2="266" y2="170" stroke="#B4B2A9" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="394" y1="40" x2="394" y2="170" stroke="#B4B2A9" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="522" y1="40" x2="522" y2="170" stroke="#B4B2A9" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Main pipeline flow arrows -->
+  <line x1="128" y1="105" x2="148" y2="105" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="256" y1="105" x2="276" y2="105" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="384" y1="105" x2="404" y2="105" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="512" y1="105" x2="532" y2="105" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== FORWARDING PATHS ===== -->
+  <text x="20" y="205" font-size="13" font-weight="500" fill="#3d3d3a">Forwarding paths</text>
+
+  <!-- EX→RF (amber) -->
+  <path d="M330 170 L330 240 L202 240 L202 170" fill="none" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="266" y="256" text-anchor="middle" font-size="12" fill="#BA7517">EX → RF (priority)</text>
+
+  <!-- MEM→RF (blue) -->
+  <path d="M458 170 L458 288 L202 288 L202 172" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="330" y="304" text-anchor="middle" font-size="12" fill="#185FA5">MEM → RF</text>
+
+  <!-- WB→RF via inverted clock (green, dashed) -->
+  <path d="M586 170 L586 336 L202 336 L202 174" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-green)"/>
+  <text x="394" y="352" text-anchor="middle" font-size="12" fill="#0F6E56">WB → RF (inverted clk, free)</text>
+
+  <!-- Flag forwarding (coral, dashed) -->
+  <path d="M330 170 L330 384 L202 384 L202 176" fill="none" stroke="#993C1D" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arrow-coral)"/>
+  <text x="266" y="400" text-anchor="middle" font-size="12" fill="#993C1D">Flag fwd (gated by UpdateFlags)</text>
+
+  <!-- ===== DESIGN DECISIONS ===== -->
+  <text x="20" y="440" font-size="13" font-weight="500" fill="#3d3d3a">Key design decisions</text>
+
+  <!-- Branch delay slot -->
+  <rect x="20" y="452" width="140" height="44" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="90" y="470" text-anchor="middle" font-size="12" font-weight="500" fill="#3C3489">Branch delay slot</text>
+  <text x="90" y="486" text-anchor="middle" font-size="11" fill="#534AB7">1 instr always executes</text>
+
+  <!-- Load delay slot -->
+  <rect x="174" y="452" width="140" height="44" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="244" y="470" text-anchor="middle" font-size="12" font-weight="500" fill="#633806">Load delay slot</text>
+  <text x="244" y="486" text-anchor="middle" font-size="11" fill="#854F0B">NOP after LDUR</text>
+
+  <!-- EX/MEM priority forwarding -->
+  <rect x="328" y="452" width="155" height="44" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="405" y="470" text-anchor="middle" font-size="12" font-weight="500" fill="#085041">EX/MEM priority fwd</text>
+  <text x="405" y="486" text-anchor="middle" font-size="11" fill="#0F6E56">X31 excluded</text>
+
+  <!-- Inverted clk regfile -->
+  <rect x="497" y="452" width="143" height="44" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="568" y="470" text-anchor="middle" font-size="12" font-weight="500" fill="#0C447C">Inverted clk regfile</text>
+  <text x="568" y="486" text-anchor="middle" font-size="11" fill="#185FA5">WB→RF in same cycle</text>
+
+</svg>
