@@ -2,6 +2,7 @@
 
 A 64-bit ARMv8-subset CPU implemented in SystemVerilog, featuring a 5-stage pipeline with data forwarding, flag forwarding, and software-scheduled hazard resolution. Verified in ModelSim across 12 benchmark programs including bubble sort and CRC-16.
 
+![Pipeline Architecture](pipeline.svg)
 ---
 
 ## Overview
